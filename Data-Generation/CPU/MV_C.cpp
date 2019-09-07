@@ -72,7 +72,7 @@ void doMultiplication(std::ofstream& out, int m, int n, double d, int thd){
 int main() {
 
     // change here to customize output filename
-    string FILENAME = "matrix_vector_cpu_5000_points_I5.csv";
+    std::string FILENAME = "matrix_vector_cpu_5000_points_I5.csv";
     // number of instances of data generated
     int NUM = 5000;
     // number of threads are using duing multithreading on CPU
