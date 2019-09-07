@@ -251,7 +251,7 @@ void doMultiplicationDenseDense(std::ofstream& out, int m, int n, int k, double 
 int main() {
 
     // change here to customize output filename
-    string FILENAME = "matrix_matrix_cpu_5000_points.csv";
+    std::string FILENAME = "matrix_matrix_cpu_5000_points.csv";
     // number of instances of data generated
     int NUM = 5000;
     // number of threads are using duing multithreading on CPU
