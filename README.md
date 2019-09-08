@@ -33,7 +33,7 @@ pip install -U scikit-learn
 **Data-Generation** codes on CPU can be compiled by:
 
 ```
-g++ -g -Wall -fopenmp -fopenmp -std=c++11
+g++ -g -Wall -fopenmp -std=c++11
 ```
 
 Or 
