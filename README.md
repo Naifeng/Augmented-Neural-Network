@@ -1,53 +1,74 @@
 # Augmented-Neural-Network
-Datasets, codes and binary files for Augmented Neural Network (NN+C)
 
-## Getting Started
+Augmented Neural Network (NN+C) is a lightweight performance prediction model designed to accurately predict the execution time of a kernel operation on an arbitrary platform with arbitrary implementations, using a small amount of training time.
 
-These instructions will assist you to run our experiments on your local machine for developing and testing purposes. 
-* **Data-Generation**: codes (and binary files) used to generate training/testing dataset
-* **Datasets**: datasets generated from data-generation
-* **Models**: lightweight deep learning models implementing Augmented Neural Network
+The key idea of NN+C is to utilize known mathematical function *f(K,H)* as an extra input to NN. For example, in matrix-matrix multiplication, besides using basic features such as matrix dimensions, matrix density as inputs, we calculate the number of total operations during matrix-matrix multiplication, that is, *f(K,H) = m\*n\*k*. 
+
+The lightweight aspect enables fast decision making during compile-time as well as run-time. NN+C provides the flexibility to incorporate any tunable parameter available for the kernel and the hardware.
+
+This repository contains:
+* `data_generation`: files used to generate training and testing dataset
+* `performance_prediction`: performance prediction models namely NN+C and baselines
+
+## Prerequisites
+
+### For **data generation**:
+* [Eigen](http://eigen.tuxfamily.org/) >= 3.3.7
+* [Boost](https://www.boost.org/) >= 1.71.0
+
+### For **performance prediction**:
+* python >= 3.6.5
+* tensorflow >= 1.8.0
+* numpy >= 1.16.1
+* pandas >= 0.23.0
+* scikit-learn >= 0.22.2
+* scipy >= 0.16.0
 
 
-## Built With
+## Building
 
-* [TensorFlow](https://www.tensorflow.org/)(1.8.0) - Machine Learning Library
+Code (`.cpp` and `.cu` files) in `data_generation` has to be built.
 
-### Prerequisites
+* `<kernel> = {MM, MV, MP, MC}` 
+* `<variant> = {global, shared}`
 
-Download Eigen library for **Data-Generation** from:
+### On CPU
 
-* [Eigen](https://eigen.tuxfamily.org/dox/)
+#### Eigen
 
-Install/update following python packages for **Models**:
+`<kernel>_C_eigen.cpp` can be compiled by:
 
 ```
-pip install pandas
-pip install numpy
-pip install scipy
-pip install -U scikit-learn
-```
-
-### Compiling
-
-**Data-Generation** codes on CPU can be compiled by:
-
-```
-g++ -g -Wall -fopenmp -std=c++11
+clang++ -Xpreprocessor -fopenmp -std=c++11 -lomp <kernel>_C_eigen.cpp -o *
 ```
 
 Or 
 
 ```
-clang++ -Xpreprocessor -fopenmp -std=c++11 -lomp
+g++ -g -Wall -fopenmp -std=c++11 <kernel>_C_eigen.cpp -o *
 ```
 
-**Data-Generation** codes on GPU can be compiled by:
+#### Boost
+
+`<kernel>_C_boost.cpp` can be compiled by:
 
 ```
-nvcc
+g++ -g -Wall -std=c++11 -DNDEBUG -DBOOST_UBLAS_NDEBUG <kernel>_C_boost.cpp -o *
 ```
+
+### On GPU
+
+`<kernel>_G_<variant>.cu` can be compiled by:
+
+```
+nvcc -std=c++11 <kernel>_G_<variant>.cu -o *
+```
+
+## Usage
+
+
 
 ## Acknowledgments
 
-This work is supported by Defense Advanced Research Projects Agency (DARPA), under the Software Defined Hardware (SDH) project, at University of Southern California.
+* This work is supported by the Defense Advanced Research Projects Agency (DARPA), under the Software Defined Hardware (SDH) project, at the University of Southern California.
+* This work is supported by the Defense Advanced Research Projects Agency (DARPA), under the Performant Automation of Parallel Program Assembly (PAPPA) project, at the University of Southern California.
