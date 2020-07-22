@@ -7,6 +7,7 @@ The key idea of NN+C is to utilize known mathematical function *f(K, H)* as an e
 The lightweight aspect enables fast decision making during compile-time as well as run-time. NN+C provides the flexibility to incorporate any tunable parameter available for the kernel and the hardware. 
 
 For any kernel-variant-hardware combination, one NN+C is needed for one kernel regardless of any variant-hardware combination, providing high portability. 
+
 ---
 
 This repository contains:
