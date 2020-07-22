@@ -74,27 +74,18 @@ Or
 
 ### generate data
 
-1. 
 ```
 % cd data_generation/<hardware>/<variant>
-```
-
-2. **output filename**, **number of data instances to generate**, **number of threads to utilize** can be customized in `<kernel>_C_<variant>.cpp` or `<kernel>_G_<variant>.cu`
-
-3. 
-```
 % ./<executable>
 ```
 
+**output filename**, **number of data instances to generate**, (**number of threads to utilize**) can be customized in `<kernel>_C_<variant>.cpp` or `<kernel>_G_<variant>.cu`
+
+
 ### predict performance
 
-1. 
 ```
 % mv data_generation/<hardware>/<variant>/<output_filename> performance_prediction/<hardware>/<variant>/<output filename>
-```
-
-2. 
-```
 % python *
 ```
 
