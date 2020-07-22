@@ -14,7 +14,7 @@ This repository contains:
 * `data_generation`: files used to generate training and testing dataset
 * `performance_prediction`: performance prediction models namely NN+C and baselines
 
-## Prerequisites
+## Dependencies
 
 for **data generation**:
 * [Eigen](http://eigen.tuxfamily.org/) >= 3.3.7
@@ -27,7 +27,6 @@ for **performance prediction**:
 * pandas >= 0.23.0
 * scikit-learn >= 0.22.2
 * scipy >= 0.16.0
-
 
 ## Building
 
