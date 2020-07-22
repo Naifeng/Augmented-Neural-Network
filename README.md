@@ -79,7 +79,7 @@ Or
 % ./<executable>
 ```
 
-**output filename**, **number of data instances to generate**, (**number of threads to utilize**) can be customized in `<kernel>_C_<variant>.cpp` or `<kernel>_G_<variant>.cu`
+**output filename**, **number of data instances to generate**, (**number of threads to utilize**) can be customized in `<kernel>_C_<variant>.cpp` or `<kernel>_G_<variant>.cu`.
 
 
 ### predict performance
