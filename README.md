@@ -8,6 +8,8 @@ The lightweight aspect enables fast decision making during compile-time as well 
 
 For any kernel-variant-hardware combination, one NN+C is needed for one kernel regardless of any variant-hardware combination, providing high portability. 
 
+For more details, please view the full paper [here](https://naifeng.github.io/assets/pdf/HiPC_NN+C_2020.pdf).
+
 ---
 
 This repository contains:
